@@ -148,19 +148,18 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Trust Badges Strip - New section */}
-      <section className="bg-forest-700 text-white py-3">
+      <section className="bg-forest-700 text-white py-4 md:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center items-center gap-3 md:gap-6 lg:gap-8">
             {[
               { icon: '🛡️', text: 'FSSAI Licensed' },
               { icon: '🌿', text: '100% Natural' },
               { icon: '🚫', text: 'No Preservatives' },
               { icon: '🚚', text: 'Free Delivery above ₹999' },
             ].map((badge, i) => (
-              <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-medium">
+              <div key={i} className="flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
                 <span className="text-base sm:text-lg">{badge.icon}</span>
                 <span className="text-forest-100">{badge.text}</span>
-                {i < 3 && <span className="hidden md:inline text-forest-500 mx-2">|</span>}
               </div>
             ))}
           </div>
@@ -289,21 +288,21 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* Trust Badges - Moved after products section */}
       <section className="bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { icon: <Shield className="w-5 h-5 text-forest-600" />, title: '100% Natural', desc: 'No chemicals, no additives' },
               { icon: <Truck className="w-5 h-5 text-earth-600" />, title: 'Fast Delivery', desc: 'Same day in Kukatpally' },
               { icon: <Award className="w-5 h-5 text-gold-600" />, title: 'Premium Quality', desc: 'Hand-picked products' },
               { icon: <Leaf className="w-5 h-5 text-forest-600" />, title: 'Cold Pressed', desc: 'Traditional methods' },
             ].map(b => (
-              <div key={b.title} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl hover:bg-gray-50 transition-colors">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-forest-50 rounded-xl flex items-center justify-center shrink-0">
+              <div key={b.title} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                <div className="w-10 h-10 bg-forest-50 rounded-xl flex items-center justify-center shrink-0">
                   {b.icon}
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-800 truncate">{b.title}</div>
-                  <div className="text-[10px] sm:text-xs text-gray-500 truncate">{b.desc}</div>
+                  <div className="text-sm font-semibold text-gray-800 truncate">{b.title}</div>
+                  <div className="text-xs text-gray-500 truncate">{b.desc}</div>
                 </div>
               </div>
             ))}
