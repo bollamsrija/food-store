@@ -44,24 +44,34 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
     }`}>
       {/* Top bar */}
       <div className="bg-forest-700 text-white text-xs py-1.5 px-4 text-center">
-        Free delivery on orders above ₹999 | WhatsApp: +91 98765 43210 | Kukatpally, Hyderabad
+        Free delivery on orders above 999 | WhatsApp: +91 98765 43210 | Kukatpally, Hyderabad
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <button
-            onClick={() => onNavigate('home')}
-            className="flex items-center gap-2 group"
-          >
-            <div className="w-9 h-9 bg-forest-600 rounded-xl flex items-center justify-center shadow-green group-hover:bg-forest-700 transition-colors">
-              <Leaf className="w-5 h-5 text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-display font-bold text-forest-800 text-base leading-tight">Sri Sai Natural</div>
-              <div className="text-[10px] text-earth-600 font-medium uppercase tracking-wider">Pure Foods</div>
-            </div>
-          </button>
+          {/* Logo and Mobile Menu */}
+          <div className="flex items-center gap-2">
+            {/* Mobile Menu Button - Now next to logo */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+
+            <button
+              onClick={() => onNavigate('home')}
+              className="flex items-center gap-2 group"
+            >
+              <div className="w-9 h-9 bg-forest-600 rounded-xl flex items-center justify-center shadow-green group-hover:bg-forest-700 transition-colors">
+                <Leaf className="w-5 h-5 text-white" />
+              </div>
+              <div className="hidden sm:block">
+                <div className="font-display font-bold text-forest-800 text-base leading-tight">Sri Sai Natural</div>
+                <div className="text-[10px] text-earth-600 font-medium uppercase tracking-wider">Pure Foods</div>
+              </div>
+            </button>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -182,14 +192,6 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
                 </div>
               )}
             </div>
-
-            {/* Mobile menu */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
           </div>
         </div>
 

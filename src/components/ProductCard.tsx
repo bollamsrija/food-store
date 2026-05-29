@@ -39,8 +39,8 @@ export default function ProductCard({ product, onNavigate }: ProductCardProps) {
       className="card overflow-hidden group cursor-pointer hover:-translate-y-1 transition-all duration-300"
       onClick={() => onNavigate(`product:${product.slug}`)}
     >
-      {/* Image */}
-      <div className="product-img-wrapper relative h-48 bg-warm-50">
+      {/* Image - Compact on mobile */}
+      <div className="product-img-wrapper relative h-32 sm:h-48 bg-warm-50">
         <img
           src={product.image_url}
           alt={product.name}
@@ -48,42 +48,42 @@ export default function ProductCard({ product, onNavigate }: ProductCardProps) {
           loading="lazy"
         />
         {discount > 0 && (
-          <span className="absolute top-2 left-2 bg-earth-500 text-white text-xs font-bold px-2 py-1 rounded-lg">
+          <span className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 bg-earth-500 text-white text-[10px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg">
             -{discount}%
           </span>
         )}
         {product.is_featured && (
-          <span className="absolute top-2 right-10 bg-forest-600 text-white text-xs font-medium px-2 py-1 rounded-lg flex items-center gap-1">
-            <Star className="w-3 h-3 fill-current" /> Featured
+          <span className="absolute top-1.5 right-8 sm:top-2 sm:right-10 bg-forest-600 text-white text-[10px] sm:text-xs font-medium px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg flex items-center gap-0.5 sm:gap-1">
+            <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" /> Featured
           </span>
         )}
         <button
           onClick={handleWishlist}
-          className={`absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
+          className={`absolute top-1.5 right-1.5 sm:top-2 sm:right-2 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
             isWished ? 'bg-red-50 text-red-500' : 'bg-white/80 text-gray-400 hover:text-red-500'
           }`}
         >
-          <Heart className={`w-4 h-4 ${isWished ? 'fill-current' : ''}`} />
+          <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isWished ? 'fill-current' : ''}`} />
         </button>
       </div>
 
-      {/* Content */}
-      <div className="p-4">
-        <div className="text-xs text-forest-600 font-medium mb-1 uppercase tracking-wide">{product.unit}</div>
-        <h3 className="font-semibold text-gray-800 text-sm leading-snug mb-2 line-clamp-2 group-hover:text-forest-700 transition-colors">
+      {/* Content - Compact on mobile */}
+      <div className="p-2 sm:p-4">
+        <div className="text-[10px] sm:text-xs text-forest-600 font-medium mb-0.5 sm:mb-1 uppercase tracking-wide">{product.unit}</div>
+        <h3 className="font-semibold text-gray-800 text-xs sm:text-sm leading-snug mb-1 sm:mb-2 line-clamp-1 sm:line-clamp-2 group-hover:text-forest-700 transition-colors">
           {product.name}
         </h3>
 
         {/* Price */}
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-forest-700 font-bold text-lg">₹{product.price}</span>
+        <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+          <span className="text-forest-700 font-bold text-sm sm:text-lg">₹{product.price}</span>
           {product.original_price && (
-            <span className="text-gray-400 text-sm line-through">₹{product.original_price}</span>
+            <span className="text-gray-400 text-[10px] sm:text-sm line-through">₹{product.original_price}</span>
           )}
         </div>
 
-        {/* Qty selector */}
-        <div className="flex items-center gap-2 mb-3">
+        {/* Qty selector - Hidden on mobile, visible on sm+ */}
+        <div className="hidden sm:flex items-center gap-2 mb-3">
           <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
             <button
               onClick={e => { e.stopPropagation(); setQty(q => Math.max(1, q - 1)); }}
@@ -104,21 +104,23 @@ export default function ProductCard({ product, onNavigate }: ProductCardProps) {
           )}
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-2">
+        {/* Actions - Compact on mobile */}
+        <div className="flex gap-1.5 sm:gap-2">
           <button
             onClick={handleAddToCart}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-forest-600 hover:bg-forest-700 text-white text-xs font-semibold py-2.5 rounded-xl transition-all duration-200 hover:shadow-green"
+            className="flex-1 flex items-center justify-center gap-1 sm:gap-1.5 bg-forest-600 hover:bg-forest-700 text-white text-[10px] sm:text-xs font-semibold py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl transition-all duration-200 hover:shadow-green"
           >
-            <ShoppingCart className="w-3.5 h-3.5" />
-            Add to Cart
+            <ShoppingCart className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span className="hidden sm:inline">Add to Cart</span>
+            <span className="sm:hidden">Add</span>
           </button>
           <button
             onClick={handleBuyNow}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-earth-500 hover:bg-earth-600 text-white text-xs font-semibold py-2.5 rounded-xl transition-all"
+            className="flex-1 flex items-center justify-center gap-1 sm:gap-1.5 bg-earth-500 hover:bg-earth-600 text-white text-[10px] sm:text-xs font-semibold py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl transition-all"
           >
-            <Zap className="w-3.5 h-3.5" />
-            Buy Now
+            <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span className="hidden sm:inline">Buy Now</span>
+            <span className="sm:hidden">Buy</span>
           </button>
         </div>
       </div>

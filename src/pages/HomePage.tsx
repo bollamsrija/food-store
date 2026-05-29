@@ -75,7 +75,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <button
                 onClick={() => onNavigate('shop')}
-                className="flex items-center gap-2 bg-white text-forest-800 font-bold px-6 py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-6 py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[160px]"
               >
                 Shop Now <ArrowRight className="w-4 h-4" />
               </button>
@@ -83,13 +83,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 href="https://wa.me/919876543210?text=Hi%20Sri%20Sai%20Natural%20Foods%2C%20I%20want%20to%20place%20an%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 min-w-[160px]"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp Order
               </a>
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-200"
+                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 shadow-lg hover:-translate-y-0.5 min-w-[160px]"
               >
                 <Phone className="w-4 h-4" /> Call Now
               </a>
@@ -144,29 +144,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: <Shield className="w-5 h-5 text-forest-600" />, title: '100% Natural', desc: 'No chemicals, no additives' },
-              { icon: <Truck className="w-5 h-5 text-earth-600" />, title: 'Fast Delivery', desc: 'Same day in Kukatpally' },
-              { icon: <Award className="w-5 h-5 text-gold-600" />, title: 'Premium Quality', desc: 'Hand-picked products' },
-              { icon: <Leaf className="w-5 h-5 text-forest-600" />, title: 'Cold Pressed', desc: 'Traditional methods' },
-            ].map(b => (
-              <div key={b.title} className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
-                <div className="w-10 h-10 bg-forest-50 rounded-xl flex items-center justify-center shrink-0">
-                  {b.icon}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-gray-800">{b.title}</div>
-                  <div className="text-xs text-gray-500">{b.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Offer Banners */}
       {banners.length > 0 && (
@@ -263,13 +240,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </div>
 
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="bg-white rounded-2xl h-80 animate-pulse" />
+                <div key={i} className="bg-white rounded-2xl h-64 sm:h-80 animate-pulse" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {featured.map(p => (
                 <ProductCard key={p.id} product={p} onNavigate={onNavigate} />
               ))}
@@ -283,6 +260,30 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             >
               View All Products <ArrowRight className="w-4 h-4" />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges - Moved after products section */}
+      <section className="bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              { icon: <Shield className="w-5 h-5 text-forest-600" />, title: '100% Natural', desc: 'No chemicals, no additives' },
+              { icon: <Truck className="w-5 h-5 text-earth-600" />, title: 'Fast Delivery', desc: 'Same day in Kukatpally' },
+              { icon: <Award className="w-5 h-5 text-gold-600" />, title: 'Premium Quality', desc: 'Hand-picked products' },
+              { icon: <Leaf className="w-5 h-5 text-forest-600" />, title: 'Cold Pressed', desc: 'Traditional methods' },
+            ].map(b => (
+              <div key={b.title} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-forest-50 rounded-xl flex items-center justify-center shrink-0">
+                  {b.icon}
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800 truncate">{b.title}</div>
+                  <div className="text-[10px] sm:text-xs text-gray-500 truncate">{b.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
