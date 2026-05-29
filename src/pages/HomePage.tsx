@@ -50,32 +50,35 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-hero overflow-hidden pt-20 pb-16 md:pb-24 lg:pb-32">
-        <div className="absolute inset-0 overflow-hidden">
+      {/* Hero Section - Compact on mobile */}
+      <section className="relative bg-hero overflow-hidden pt-20 pb-8 md:pb-16 lg:pb-24">
+        <div className="absolute inset-0 overflow-hidden hidden lg:block">
           <div className="absolute top-20 -right-20 w-96 h-96 rounded-full bg-forest-500/20 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-earth-600/20 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-warm-300/10 blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left animate-slide-up">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            {/* Hide badge on mobile */}
+            <div className="hidden md:inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
               <Leaf className="w-4 h-4 text-green-300" />
               <span className="text-white/90 text-sm font-medium">100% Natural & Organic Products</span>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
+            {/* Smaller heading on mobile */}
+            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-2 md:mb-4">
               Pure Natural Foods<br />
-              <span className="text-warm-300">for a Healthy</span><br />
-              Lifestyle
+              <span className="text-warm-300">for a Healthy</span>{' '}
+              <span className="hidden sm:inline"><br /></span>Lifestyle
             </h1>
-            <p className="text-forest-100 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              Cold-pressed oils, millets, dry fruits, spices and organic groceries. Direct from nature to your table. No chemicals, no compromise.
+            {/* Compact description on mobile */}
+            <p className="text-forest-100 text-sm md:text-lg mb-4 md:mb-8 max-w-xl mx-auto lg:mx-0">
+              Cold-pressed oils, millets, dry fruits & organic groceries. No chemicals, 100% natural.
             </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-2 md:gap-3 justify-center lg:justify-start">
               <button
                 onClick={() => onNavigate('shop')}
-                className="flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-6 py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 min-w-[160px]"
+                className="flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm md:text-base"
               >
                 Shop Now <ArrowRight className="w-4 h-4" />
               </button>
@@ -83,20 +86,20 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 href="https://wa.me/919876543210?text=Hi%20Sri%20Sai%20Natural%20Foods%2C%20I%20want%20to%20place%20an%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 min-w-[160px]"
+                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm md:text-base"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp Order
               </a>
               <a
                 href="tel:+919876543210"
-                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 shadow-lg hover:-translate-y-0.5 min-w-[160px]"
+                className="hidden sm:flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 shadow-lg hover:-translate-y-0.5"
               >
                 <Phone className="w-4 h-4" /> Call Now
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="flex gap-8 mt-10 justify-center lg:justify-start">
+            {/* Stats - Hidden on mobile */}
+            <div className="hidden md:flex gap-8 mt-8 lg:mt-10 justify-center lg:justify-start">
               {[
                 { num: '6+', label: 'Years Trust' },
                 { num: '2000+', label: 'Happy Customers' },
@@ -110,14 +113,14 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             </div>
           </div>
 
-          {/* Hero image */}
-          <div className="flex-1 max-w-lg w-full">
-            <div className="relative">
+          {/* Hero image - Hidden on mobile */}
+          <div className="hidden lg:flex flex-1 max-w-lg w-full">
+            <div className="relative w-full">
               <div className="absolute inset-0 bg-forest-600/30 rounded-3xl blur-2xl scale-95" />
               <img
                 src="https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg"
                 alt="Natural foods"
-                className="relative rounded-3xl object-cover w-full h-72 sm:h-96 shadow-2xl"
+                className="relative rounded-3xl object-cover w-full h-72 xl:h-96 shadow-2xl"
               />
               <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl px-4 py-3 shadow-xl">
                 <div className="flex items-center gap-2">
@@ -140,6 +143,26 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges Strip - New section */}
+      <section className="bg-forest-700 text-white py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+            {[
+              { icon: '🛡️', text: 'FSSAI Licensed' },
+              { icon: '🌿', text: '100% Natural' },
+              { icon: '🚫', text: 'No Preservatives' },
+              { icon: '🚚', text: 'Free Delivery above ₹999' },
+            ].map((badge, i) => (
+              <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-medium">
+                <span className="text-base sm:text-lg">{badge.icon}</span>
+                <span className="text-forest-100">{badge.text}</span>
+                {i < 3 && <span className="hidden md:inline text-forest-500 mx-2">|</span>}
+              </div>
+            ))}
           </div>
         </div>
       </section>
