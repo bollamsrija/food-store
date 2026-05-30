@@ -51,7 +51,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Compact on mobile */}
-      <section className="relative bg-hero overflow-hidden pt-20 pb-8 md:pb-16 lg:pb-24">
+      <section className="relative bg-hero overflow-hidden pt-28 md:pt-24 pb-8 md:pb-16 lg:pb-24">
         <div className="absolute inset-0 overflow-hidden hidden lg:block">
           <div className="absolute top-20 -right-20 w-96 h-96 rounded-full bg-forest-500/20 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-earth-600/20 blur-3xl" />
@@ -61,7 +61,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left animate-slide-up">
             {/* Hide badge on mobile */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-4 py-1.5 mb-8 sm:mb-10 mt-6 max-w-full">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-4 py-1.5 mb-8 sm:mb-10  max-w-full">
              <Leaf className="w-4 h-4 text-green-300" />
               <span className="text-white/90 text-xs sm:text-sm font-medium text-center">100% Natural & Organic Products</span>
             </div>
