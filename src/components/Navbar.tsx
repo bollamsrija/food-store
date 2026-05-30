@@ -48,14 +48,14 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo and Mobile Menu */}
           <div className="flex items-center gap-2">
             {/* Mobile Menu Button - Now next to logo */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
-            >
+              className="lg:hidden p-1 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-md transition-colors"
+              >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
 
@@ -63,8 +63,8 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
               onClick={() => onNavigate('home')}
               className="flex items-center gap-2 group"
             >
-              <div className="w-9 h-9 bg-forest-600 rounded-xl flex items-center justify-center shadow-green group-hover:bg-forest-700 transition-colors">
-                <Leaf className="w-5 h-5 text-white" />
+              <div className="w-7 h-7 md:w-9 md:h-9 bg-forest-600 rounded-lg flex items-center justify-center">
+               <Leaf className="w-5 h-5 text-white" />
               </div>
               <div className="hidden sm:block">
                 <div className="font-display font-bold text-forest-800 text-base leading-tight">Sri Sai Natural</div>
@@ -91,7 +91,7 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             {/* Search */}
             {searchOpen ? (
               <div className="flex items-center gap-2 animate-slide-down">
@@ -116,8 +116,8 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
             ) : (
               <button
                 onClick={() => setSearchOpen(true)}
-                className="p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
-              >
+                className="p-1 md:p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-md transition-colors"
+                >
                 <Search className="w-5 h-5" />
               </button>
             )}
@@ -125,7 +125,7 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
             {/* Wishlist */}
             <button
               onClick={() => onNavigate('wishlist')}
-              className="relative p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
+              className="relative p-1 md:p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-md transition-colors"
             >
               <Heart className="w-5 h-5" />
               {wishlist.length > 0 && (
@@ -138,7 +138,7 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
             {/* Cart */}
             <button
               onClick={() => onNavigate('cart')}
-              className="relative p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors"
+              className="relative p-1 md:p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-md transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
@@ -152,7 +152,7 @@ export default function Navbar({ currentPage, onNavigate, searchQuery, onSearchC
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-lg transition-colors flex items-center gap-1"
+                className="p-1 md:p-2 text-gray-500 hover:text-forest-700 hover:bg-forest-50 rounded-md transition-colors flex items-center gap-1"
               >
                 <User className="w-5 h-5" />
               </button>
