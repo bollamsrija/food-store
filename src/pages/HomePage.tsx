@@ -61,24 +61,24 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left animate-slide-up">
             {/* Hide badge on mobile */}
-            <div className="hidden md:inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
-              <Leaf className="w-4 h-4 text-green-300" />
-              <span className="text-white/90 text-sm font-medium">100% Natural & Organic Products</span>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-4 py-1.5 mb-8 sm:mb-10 mt-6 max-w-full">
+             <Leaf className="w-4 h-4 text-green-300" />
+              <span className="text-white/90 text-xs sm:text-sm font-medium text-center">100% Natural & Organic Products</span>
             </div>
             {/* Smaller heading on mobile */}
-            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-2 md:mb-4">
-              Pure Natural Foods<br />
+           <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-normal md:leading-tight mb-4 md:mb-4 break-words">
+            Pure Natural Foods<br />
               <span className="text-warm-300">for a Healthy</span>{' '}
-              <span className="hidden sm:inline"><br /></span>Lifestyle
+              <span className="hidden sm:block"><br /></span>Lifestyle
             </h1>
             {/* Compact description on mobile */}
             <p className="text-forest-100 text-sm md:text-lg mb-4 md:mb-8 max-w-xl mx-auto lg:mx-0">
               Cold-pressed oils, millets, dry fruits & organic groceries. No chemicals, 100% natural.
             </p>
-            <div className="flex flex-wrap gap-2 md:gap-3 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-3 justify-center lg:justify-start w-full sm:w-auto">
               <button
                 onClick={() => onNavigate('shop')}
-                className="flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm md:text-base"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm md:text-base"
               >
                 Shop Now <ArrowRight className="w-4 h-4" />
               </button>
@@ -86,20 +86,21 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 href="https://wa.me/919876543210?text=Hi%20Sri%20Sai%20Natural%20Foods%2C%20I%20want%20to%20place%20an%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm md:text-base"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm md:text-base"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp Order
               </a>
               <a
                 href="tel:+919876543210"
-                className="hidden sm:flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 shadow-lg hover:-translate-y-0.5"
-              >
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl hover:bg-white/20 transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm md:text-base w-full sm:w-auto"
+               >
                 <Phone className="w-4 h-4" /> Call Now
               </a>
             </div>
 
             {/* Stats - Hidden on mobile */}
-            <div className="hidden md:flex gap-8 mt-8 lg:mt-10 justify-center lg:justify-start">
+            
+                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 lg:mt-10 text-center lg:text-left md:flex md:gap-8 justify-center lg:justify-start">
               {[
                 { num: '6+', label: 'Years Trust' },
                 { num: '2000+', label: 'Happy Customers' },
@@ -245,6 +246,45 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         )}
       </section>
 
+{/* <Why Choose Us> */}
+
+<section className="py-14 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-10">
+      <h2 className="section-title">Why Choose Sri Sai Natural Foods?</h2>
+      <p className="section-subtitle">
+        Pure products, traditional methods, trusted quality.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="card p-6 text-center">
+        <div className="text-4xl mb-3">🌱</div>
+        <h3 className="font-bold text-lg mb-2">100% Natural</h3>
+        <p className="text-gray-600">
+          No chemicals, preservatives or artificial additives.
+        </p>
+      </div>
+
+      <div className="card p-6 text-center">
+        <div className="text-4xl mb-3">🏺</div>
+        <h3 className="font-bold text-lg mb-2">Traditional Processing</h3>
+        <p className="text-gray-600">
+          Prepared using traditional and healthy methods.
+        </p>
+      </div>
+
+      <div className="card p-6 text-center">
+        <div className="text-4xl mb-3">🚚</div>
+        <h3 className="font-bold text-lg mb-2">Fast Delivery</h3>
+        <p className="text-gray-600">
+          Quick and secure delivery across Hyderabad.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* Featured Products */}
       <section className="py-12 bg-warm-50/60">
         <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -271,9 +311,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {featured.map(p => (
                 <ProductCard key={p.id} product={p} onNavigate={onNavigate} />
+                
               ))}
             </div>
+            
           )}
+
 
           <div className="text-center mt-8">
             <button
@@ -361,7 +404,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-display text-3xl font-bold text-white mb-2">What Our Customers Say</h2>
-            <p className="text-forest-300">Trusted by thousands of happy families in Hyderabad</p>
+            <p className="text-forest-300">Trusted by 2000+ happy families in Hyderabad</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map(t => (
@@ -389,6 +432,43 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
+      <section className="py-14 bg-warm-50">
+  <div className="max-w-4xl mx-auto px-4">
+    <h2 className="section-title text-center mb-8">
+      Frequently Asked Questions
+    </h2>
+
+    <div className="space-y-4">
+      <div className="bg-white p-5 rounded-xl">
+        <h3 className="font-semibold">
+          Are your products chemical free?
+        </h3>
+        <p className="text-gray-600 mt-2">
+          Yes. Our products are carefully sourced and free from harmful chemicals.
+        </p>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl">
+        <h3 className="font-semibold">
+          Do you provide home delivery?
+        </h3>
+        <p className="text-gray-600 mt-2">
+          Yes, we provide delivery across Hyderabad.
+        </p>
+      </div>
+
+      <div className="bg-white p-5 rounded-xl">
+        <h3 className="font-semibold">
+          How can I place an order?
+        </h3>
+        <p className="text-gray-600 mt-2">
+          You can order directly from the website or through WhatsApp.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* Google Maps */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-8">
@@ -407,6 +487,32 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           />
         </div>
       </section>
+
+      <section className="py-12 bg-white">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-6 text-center">
+      <div>
+        <h3 className="text-3xl font-bold text-forest-700">2000+</h3>
+        <p className="text-gray-600">Happy Customers</p>
+      </div>
+
+      <div>
+        <h3 className="text-3xl font-bold text-forest-700">100+</h3>
+        <p className="text-gray-600">Natural Products</p>
+      </div>
+
+      <div>
+        <h3 className="text-3xl font-bold text-forest-700">6+</h3>
+        <p className="text-gray-600">Years of Trust</p>
+      </div>
+
+      <div>
+        <h3 className="text-3xl font-bold text-forest-700">4.9★</h3>
+        <p className="text-gray-600">Customer Rating</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* WhatsApp CTA banner */}
       <section className="py-10 bg-green-600">

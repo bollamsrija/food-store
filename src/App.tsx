@@ -16,6 +16,8 @@ import WishlistPage from './pages/WishlistPage';
 import CategoriesPage from './pages/CategoriesPage';
 import TrackOrderPage from './pages/TrackOrderPage';
 import AdminPage from './pages/AdminPage';
+import PrivacyPage from './pages/PrivacyPage';
+import RefundPage from './pages/RefundPage';
 
 function AppInner() {
   const [page, setPage] = useState('home');
@@ -65,6 +67,11 @@ function AppInner() {
       case 'track-order': return <TrackOrderPage />;
       case 'admin': return <AdminPage onNavigate={navigate} />;
       default: return <HomePage onNavigate={navigate} />;
+      case 'privacy':
+  return <PrivacyPage />;
+
+case 'refund':
+  return <RefundPage />;
     }
   };
 

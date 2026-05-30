@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Leaf, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Leaf, MessageCircle,Clock } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -36,6 +36,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                 { label: 'Categories', page: 'categories' },
                 { label: 'About Us', page: 'about' },
                 { label: 'Contact', page: 'contact' },
+                { label: 'Privacy Policy', page: 'privacy' },
+{ label: 'Refund Policy', page: 'refund' },
               ].map(l => (
                 <li key={l.page}>
                   <button
@@ -80,6 +82,12 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <MapPin className="w-4 h-4 text-forest-400 mt-0.5 shrink-0" />
                 <span>KPHB Colony, Kukatpally, Hyderabad, Telangana - 500072</span>
               </li>
+             
+             <li className="flex items-center gap-3 text-forest-300 text-sm">
+  <Clock className="w-4 h-4 text-forest-400 shrink-0" />
+  <span>Mon - Sun: 8:00 AM - 9:00 PM</span>
+</li>
+
               <li className="flex items-center gap-3 text-forest-300 text-sm">
                 <Phone className="w-4 h-4 text-forest-400 shrink-0" />
                 <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a>
@@ -103,6 +111,33 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
         </div>
       </div>
+
+
+
+          {/* Bottom bar - Copyright */}
+
+          <div className="border-t border-forest-800">
+  <div className="max-w-7xl mx-auto px-4 py-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div className="text-forest-300 text-sm font-medium hover:text-white transition-colors">
+        🌿 100% Natural
+      </div>
+
+      <div className="text-forest-300 text-sm font-medium hover:text-white transition-colors">
+        🛡️ FSSAI Licensed
+      </div>
+
+      <div className="text-forest-300 text-sm font-medium hover:text-white transition-colors">
+        🚚 Fast Delivery
+      </div>
+
+      <div className="text-forest-300 text-sm font-medium hover:text-white transition-colors">
+        ⭐ Trusted by 2000+ Families
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Bottom bar - Copyright */}
       <div className="border-t border-forest-800 py-4 px-4 text-center">
