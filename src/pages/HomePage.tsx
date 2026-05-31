@@ -76,7 +76,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             <p className="text-forest-100 text-sm md:text-lg mb-4 md:mb-8 max-w-xl mx-auto lg:mx-0">
               Cold-pressed oils, millets, dry fruits & organic groceries. No chemicals, 100% natural.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-3 justify-center lg:justify-start w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center lg:justify-start w-full sm:w-auto">
               <button
                 onClick={() => onNavigate('shop')}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-forest-800 font-bold px-5 py-2.5 md:px-6 md:py-3 rounded-xl hover:bg-warm-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm md:text-base"
@@ -152,16 +152,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       {/* Trust Badges Strip - New section */}
       <section className="bg-forest-700 text-white py-4 md:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center items-center gap-3 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 gap-4 md:flex md:flex-wrap justify-center items-center  md:gap-6 lg:gap-8">
             {[
               { icon: '🛡️', text: 'FSSAI Licensed' },
               { icon: '🌿', text: '100% Natural' },
               { icon: '🚫', text: 'No Preservatives' },
               { icon: '🚚', text: 'Free Delivery above ₹999' },
             ].map((badge, i) => (
-              <div key={i} className="flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
-                <span className="text-base sm:text-lg">{badge.icon}</span>
-                <span className="text-forest-100">{badge.text}</span>
+              <div key={i} className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-center text-[11px] sm:text-sm font-medium">
+              <span className="text-base sm:text-lg">{badge.icon}</span>
+                <span className="text-forest-100 leading-tight">{badge.text}</span>
               </div>
             ))}
           </div>
@@ -173,7 +173,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       {banners.length > 0 && (
         <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div
-            className="relative rounded-2xl overflow-hidden h-32 sm:h-40 flex items-center px-8 cursor-pointer"
+            className="relative rounded-2xl overflow-hidden h-40 sm:h-40 flex items-center px-6 sm:px-8 cursor-pointer"
             style={{ backgroundColor: banners[activeBanner]?.bg_color || '#2d6a4f' }}
             onClick={() => onNavigate(banners[activeBanner]?.cta_link?.replace('/', '') || 'shop')}
           >
@@ -181,9 +181,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white transform translate-x-24 -translate-y-12" />
               <div className="absolute bottom-0 right-1/4 w-40 h-40 rounded-full bg-white transform translate-y-12" />
             </div>
-            <div className="relative z-10">
-              <div className="text-white font-display font-bold text-xl sm:text-2xl">{banners[activeBanner]?.title}</div>
-              <div className="text-white/80 text-sm mt-1">{banners[activeBanner]?.subtitle}</div>
+            <div className="relative z-10 pr-4 sm:pr-0">
+              <div className="text-white font-display font-bold text-lg sm:text-2xl leading-tight break-words">{banners[activeBanner]?.title}</div>
+              <div className="text-white/80 text-xs sm:text-sm mt-2 max-w-[160px] sm:max-w-[220px]">{banners[activeBanner]?.subtitle}</div>
             </div>
             <button className="relative z-10 ml-auto flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-xl transition-colors text-sm border border-white/30">
               {banners[activeBanner]?.cta_text} <ArrowRight className="w-4 h-4" />
@@ -258,7 +258,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="card p-6 text-center">
         <div className="text-4xl mb-3">🌱</div>
         <h3 className="font-bold text-lg mb-2">100% Natural</h3>
