@@ -69,7 +69,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-normal md:leading-tight mb-4 md:mb-4 break-words">
             Pure Natural Foods<br />
               <span className="text-warm-300">for a Healthy</span>{' '}
-              <span className="hidden sm:block"><br /></span>Lifestyle
+              <span className="hidden sm:block"></span>Lifestyle
             </h1>
             {/* Compact description on mobile */}
             <p className="text-forest-100 text-sm md:text-lg mb-4 md:mb-8 max-w-xl mx-auto lg:mx-0">
